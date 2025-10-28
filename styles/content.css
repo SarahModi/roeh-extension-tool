@@ -1,1 +1,51 @@
+/* Ro'eh Safety Indicators - Clean & Professional */
+.roeh-safety-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-left: 6px;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: help;
+    position: relative;
+}
 
+/* Safety status colors */
+.roeh-safe {
+    background: #10B981; /* Green */
+}
+
+.roeh-suspicious {
+    background: #F59E0B; /* Yellow */
+}
+
+.roeh-dangerous {
+    background: #EF4444; /* Red */
+}
+
+/* Tooltip */
+.roeh-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1F2937;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 10000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.roeh-safety-dot:hover .roeh-tooltip {
+    display: block;
+}
+
+/* Make sure dots don't break email layouts */
+.roeh-safety-dot {
+    vertical-align: middle;
+}
