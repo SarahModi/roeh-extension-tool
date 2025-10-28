@@ -1,11 +1,11 @@
 {
   "manifest_version": 3,
-  "name": "Ro'eh - Your Digital Oxygen", 
+  "name": "Ro'eh - Digital Oxygen", 
   "version": "1.0.0",
   "icons": {
-    "16": "icons/icon16.png",
-    "48": "icons/icon48.png",
-    "128": "icons/icon128.png"
+    "16": "icons/Roeh (1)_imresizer.png",
+    "48": "icons/ Untitled design (2).png",
+    "128": "icons/Untitled design (3).png"
   },
   "description": "See link safety at a glance. Breathe easy online.",
   "permissions": [
