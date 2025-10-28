@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Guarded by Ro'eh ",
+  "name": "Ro'eh - Your Digital Oxygen", 
   "version": "1.0.0",
   "description": "See link safety at a glance. Breathe easy online.",
   "permissions": [
@@ -16,10 +16,5 @@
   "action": {
     "default_popup": "popup.html",
     "default_title": "Ro'eh Security Scan"
-  },
-  "icons": {
-    "16": "icons/icon16.png",
-    "48": "icons/icon48.png",
-    "128": "icons/icon128.png"
   }
 }
