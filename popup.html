@@ -1,148 +1,33 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <style>
-        body {
-            width: 300px;
-            padding: 20px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            margin: 0;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-
-        .tagline {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-
-        .stats {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 15px;
-            backdrop-filter: blur(10px);
-        }
-
-        .stat-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-            font-size: 13px;
-        }
-
-        .stat-value {
-            font-weight: bold;
-        }
-
-        .status-dots {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 15px 0;
-        }
-
-        .dot-example {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-size: 11px;
-        }
-
-        .dot {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            margin-bottom: 4px;
-            border: 2px solid white;
-        }
-
-        .safe { background: #10B981; }
-        .suspicious { background: #F59E0B; }
-        .dangerous { background: #EF4444; }
-
-        .scan-btn {
-            width: 100%;
-            padding: 12px;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .scan-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-1px);
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 15px;
-            font-size: 11px;
-            opacity: 0.7;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ro'eh — Link Safety</title>
+  <style>
+    :root { color-scheme: dark; font-family: system-ui, sans-serif; }
+    body { width: 300px; margin: 0; padding: 18px; color: #f8fafc; background: #111827; }
+    h1 { margin: 0 0 4px; font-size: 19px; }
+    .intro, .note { color: #cbd5e1; font-size: 12px; line-height: 1.5; }
+    .stats { margin: 16px 0; padding: 12px; border: 1px solid #334155; border-radius: 10px; }
+    .row { display: flex; justify-content: space-between; padding: 5px 0; font-size: 13px; }
+    .value { font-weight: 700; }
+    button { width: 100%; padding: 11px; border: 0; border-radius: 8px; color: #fff; background: #6d5ce8; font: inherit; font-weight: 650; cursor: pointer; }
+    button:hover { background: #5746d2; }
+    button:disabled { opacity: .5; cursor: not-allowed; }
+    #message { min-height: 34px; }
+  </style>
 </head>
 <body>
-    <div class="header">
-        <div class="logo">RO' EH</div>
-        <div class="tagline">Your Digital Oxygen</div>
-    </div>
-
-    <div class="stats">
-        <div class="stat-item">
-            <span>Links Protected:</span>
-            <span class="stat-value" id="protectedCount">0</span>
-        </div>
-        <div class="stat-item">
-            <span>Threats Blocked:</span>
-            <span class="stat-value" id="threatsBlocked">0</span>
-        </div>
-        <div class="stat-item">
-            <span>Status:</span>
-            <span class="stat-value" id="status">Active</span>
-        </div>
-    </div>
-
-    <div class="status-dots">
-        <div class="dot-example">
-            <div class="dot safe"></div>
-            <span>Safe</span>
-        </div>
-        <div class="dot-example">
-            <div class="dot suspicious"></div>
-            <span>Careful</span>
-        </div>
-        <div class="dot-example">
-            <div class="dot dangerous"></div>
-            <span>Danger</span>
-        </div>
-    </div>
-
-    <button class="scan-btn" id="scanPage">
-        🔍 Scan This Page
-    </button>
-
-    <div class="footer">
-        Breathe easy. Click with confidence.
-    </div>
-
-    <script src="popup.js"></script>
+  <h1>Ro'eh</h1>
+  <p class="intro">A quick, local check for common link warning signs.</p>
+  <section class="stats" aria-live="polite">
+    <div class="row"><span>Web links checked</span><span class="value" id="scannedCount">—</span></div>
+    <div class="row"><span>Warning signals</span><span class="value" id="warningCount">—</span></div>
+    <div class="row"><span>Status</span><span class="value" id="status">Checking…</span></div>
+  </section>
+  <button id="scanPage" type="button">Rescan this page</button>
+  <p class="note" id="message">A lack of warnings is not a safety guarantee.</p>
+  <script src="popup.js"></script>
 </body>
 </html>
